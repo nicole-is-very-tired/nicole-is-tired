@@ -1,0 +1,501 @@
+/* https://www.figma.com/file/NcnWpdr72NbgQLjuI7w09z/Windows-98-Design-System-(Community)?node-id=0-1&t=HXamxDP7IUZqNqQF-0 */
+
+:root {
+  /* Many variables, styles, and images taken from 98.css */
+  --text-color: #222222;
+  --surface: #c0c0c0;
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+  --dialog-blue: #000080;
+  --dialog-blue-light: #1084d0;
+  --dialog-gray: #808080;
+  --dialog-gray-light: #b5b5b5;
+  --link-blue: #0000ff;
+
+  --border-width: 2px;
+  --border-raised-outer: inset -2px -2px var(--window-frame),
+    inset 2px 2px var(--button-highlight);
+  --border-raised-inner: inset -4px -4px var(--button-shadow),
+    inset 4px 4px var(--button-face);
+  --border-sunken-outer: inset -2px -2px var(--button-highlight),
+    inset 2px 2px var(--window-frame);
+  --border-sunken-inner: inset -4px -4px var(--button-face),
+    inset 4px 4px var(--button-shadow);
+  --border-window-outer: inset -2px -2px var(--window-frame),
+    inset 2px 2px var(--button-face);
+  --border-window-inner: inset -4px -4px var(--button-shadow),
+    inset 4px 4px var(--button-highlight);
+
+  --easing-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --win98-cursor: url(../images/cursor.png), auto;
+  --win98-pointer: url(../images/pointer.png), auto;
+}
+
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("../fonts/ms_sans_serif.woff") format("woff");
+  src: url("../fonts/ms_sans_serif.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("fonts/converted/ms_sans_serif_bold.woff") format("woff");
+  src: url("fonts/converted/ms_sans_serif_bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+html {
+  font-family: "W95FA", "Pixelated MS Sans Serif", monospace;
+  background-color: #008083;
+  cursor: var(--win98-cursor);
+  overflow: hidden;
+  user-select: none;
+}
+
+img{
+  image-rendering: pixelated;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#noscript{
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  z-index: 1050;
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+  padding: 6px;
+  position: absolute;
+  min-width: 292px;
+  height: 192px;
+  transform: translate(-50%, -50%);
+  line-height: 192px;
+}
+
+#noscript img{
+  position: relative;
+  transform: translateY(30%);
+}
+
+#noscript + div{
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  background-color: #00000065;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+/* SPECIFIC WINDOWS ####################################################################################################### */
+
+#logo {
+  height: clamp(25px, 20vw, 125px);
+  width: auto;
+  border: 1px black solid;
+  margin: 0 8px 8px 16px;
+  float: left;
+}
+
+#about ul{
+  list-style: none;
+  padding: 0;
+}
+
+#socials .content, #websites .content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100% - 48px);
+}
+
+#socials a{
+  margin: 0 auto;
+  padding: 12px;
+  max-width: 100%;
+  text-align: center;
+}
+
+#socials img{
+  height: 75%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+iframe{
+  width: 100%;
+  height: calc(100% - 48px);
+}
+
+win-nav[data-title="socials >w<"]{
+  min-width: 92px;
+}
+
+win-nav[data-title="socials >w<"] h2{
+  display: none;
+}
+
+/* WINDOW PRESET ####################################################################################################### */
+
+
+
+win-main{
+  position: absolute;
+  min-height: 80px;
+  min-width: fit-content;
+  z-index: 10;
+  display: inline-block;
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+  padding: 6px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+win-main p, win-main h1{
+  margin: 0;
+  font-weight: 400;
+}
+
+
+win-nav{
+  background-image: linear-gradient(to left, #1085D2, #00007B);
+  display: block;
+  min-width: 225px;
+  height: 36px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+win-nav div{
+  position: absolute;
+  display: flex;
+  right: 4px;
+  top: 4px;
+}
+
+win-nav h2{
+  color: #fff;
+  margin: 0;
+  float: left;
+  line-height: 36px;
+  padding-left: 8px;
+  font-weight: 400;
+}
+
+win-nav img[src="windows/buttons/nav-buttons/cross.png"]{
+  cursor: var(--win98-pointer);
+}
+
+win-nav img{
+  height: 28px;
+
+}
+
+.open{
+  opacity: 1;
+  pointer-events: all;
+}
+
+.max{
+  width: calc(100vw - 12px)!important; 
+  height: calc(100vh - 12px)!important;
+  top: 0;
+  left: 0;
+}
+
+.drag{
+  height: 32px; 
+  width: 32px;
+  position: absolute;
+  bottom: 0; 
+  right: 0; 
+  padding: 3px;
+  background-repeat: no-repeat;
+  background-image: url(../images/drag.svg);
+  image-rendering: pixelated;
+  cursor: se-resize;
+}
+
+.content{
+  overflow: auto;
+  height: calc(100% - 44px);
+  display: flex;
+  gap: 8px;
+}
+
+.hidden{
+  display: none;
+}
+
+/* STEAM SPECIFIC WINDOW ############################################################################################### */
+
+win-main#steam{
+  border: 1px outset #808080;
+  box-shadow: none;
+  background: #4c5844;
+  padding: 0 0 8px 0;
+}
+
+#steam win-nav{
+  background: transparent;
+}
+
+#steam ul{
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+#steam li{
+  list-style-type: ">> ";
+  color: #a0aa95;
+  font-weight: 100;
+}
+
+#steam .content{
+  flex-direction: column;
+  align-items: center;
+}
+
+#steam .banner{
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-image: repeating-linear-gradient(to bottom,#a0aa95,#a0aa95 2px,#ffffff00 2px,#ffffff00 4px);
+  mask-image: linear-gradient(to right, #ffffff00 2%,#ffffff5a, #ffffff00 98%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+
+#steam .banner + img{
+  filter: invert(1) drop-shadow(10px 10px 10px);
+  position: absolute;
+  top: 18%;
+}
+
+#steam a{
+  color: white;
+  border: 1px solid;
+  border-color: #87907f #2b3125 #2b3125 #87907f;
+  box-shadow: none;
+  background: #4c5844;
+}
+
+#steam win-nav button[aria-label="close"]{
+  background-color: transparent;
+  filter: invert(1);
+  box-shadow: none;
+}
+
+/* DESKTOP ICONS ####################################################################################################### */
+
+main{
+  display: flex;
+  padding-left: 15px;
+  flex-direction: column;
+  font-size: 13pt;
+}
+
+desktop-icon{
+  width: 120px;
+  margin: 5px -20px;
+  padding: 5px;
+  display: inline-block;
+  text-align: center;
+  cursor: url(../images/pointer.png), auto;
+}
+
+desktop-icon p{
+  margin: 0;
+  padding: 0 7px;
+  color: #fff;
+  width: fit-content;
+  margin: auto;
+}
+
+desktop-icon:focus > p{
+  background-color: var(--dialog-blue);
+  outline: 2px dotted #fff;
+}
+
+desktop-icon:focus > img{
+  mix-blend-mode: multiply;
+}
+
+desktop-icon > img{
+  height: 64px;
+  width: 64px;
+}
+
+@media only screen and (max-width: 500px) {
+  desktop-icon[data-text="Paint"], #paint{
+    display: none;
+  }
+}
+
+/* TASK BAR ####################################################################################################### */
+
+footer{
+  position: absolute;
+  bottom: 0;
+  background-color: var(--surface);
+  height: 46px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px -2px var(--button-face), 0px -4px var(--dialog-gray-light);
+}
+
+footer #startbtn, footer button{
+  font-family: "W95FA", "Pixelated MS Sans Serif", monospace;
+  height: 40px;
+  align-items: center;
+  font-size: 14pt;
+  margin: 0 4px;
+  display: flex;
+}
+
+footer #startbtn img{
+  padding-right: 6px;
+}
+
+footer > div{
+  display: flex;
+  width: fit-content;
+  height: 40px;
+}
+
+footer > div:first-of-type::after{
+  content: "";
+  width: 10px;
+  background-image: url(../images/tb-divide.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  background-size: 40px;
+}
+
+#task-info{
+  position: absolute;
+  right: 8px;
+  width: 5%;
+  min-width: 100px;
+  line-height: 40px;
+  box-shadow: inset -2px -2px var(--button-face), inset 2px 2px var(--button-shadow);
+}
+
+#task-info::before{
+  content: "";
+  width: 10px;
+  position: relative;
+  transform: translate(-16px);
+  background-image: url(../images/tb-divide.png);
+  background-position: 35%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  background-size: 40px;
+}
+
+#task-info p{
+  margin: 0 auto;
+  transform: translateX(-5px);
+  text-align: center;
+}
+
+#task-info::after{
+  background: none;
+}
+
+task-item img{
+  height: 70%;
+}
+
+@media only screen and (max-width: 990px) {
+  task-item p{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 565px) {
+  #item-holder{
+    display: none;
+  }
+}
+
+/* BUTTONS ################################################################################################################## */
+
+
+button, a{
+  border: none;
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+
+  padding: 0 12px;
+  line-height: 28px;
+  display: block;
+  min-width: 28px;
+  width: max-content;
+  height: 28px;
+  color: black;
+  text-decoration: none;
+
+  cursor: var(--win98-pointer);
+}
+
+.button-holder{
+  z-index: 50;
+}
+
+button:focus, a:focus{
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+  border-radius: 0;
+}
+
+button:active, a:active, task-item.active button{
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+}
+
+win-nav button{
+  image-rendering: pixelated;
+  width: fit-content;
+}
+
+win-nav button:focus{
+  outline: none;
+}
+
+win-nav button[aria-label="close"]{
+  background-image: url("../images/close.svg");
+  margin-left: 4px;
+  background-repeat: no-repeat;
+  background-position: top 50% left 50%;
+  background-size: 50%;
+}
+
+win-nav button[aria-label="maximize"]{
+  background-image: url("../images/maximize.svg");
+  background-repeat: no-repeat;
+  background-position: top 50% left 50%;
+  background-size: 50%;
+}
+
+win-nav button[aria-label="minimize"]{
+  background-image: url("../images/minimize.svg");
+  background-repeat: no-repeat;
+  background-position: top 70% left 40%;
+  background-size: 40%;
+}

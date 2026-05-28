@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>NicoleIsVeryTired</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="shortcut icon" type="image/png" href="images/full-trash.png">
+
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.cdnfonts.com/css/w95fa" rel="stylesheet">
+    
+
+    <script src="js/custom-html.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <desktop-icon tabindex="0" data-src="images/my-computer.png" data-text="About"></desktop-icon>
+        <desktop-icon tabindex="0" data-src="images/IE.png" data-text="Websites"></desktop-icon>
+        <desktop-icon tabindex="0" data-src="images/network_normal_two_pcs-5.png" data-text="Socials"></desktop-icon>
+        <!--desktop-icon tabindex="0" data-src="windows/desktop/my-documents.png" data-text="Projects"></desktop-icon -->
+        <desktop-icon tabindex="0" data-src="images/paint_file-4.png" data-text="Paint"></desktop-icon>
+    </main>
+    
+    <win-main id="about" style="top: 20%; left: 40%; z-index: 1; width: 300px;">
+        <win-nav data-title="about me!! :3"></win-nav>
+        <div class="content">
+            <img id="logo" src="images/pfp.jpg">
+            <span>
+                <h1 id="name">NICOLE</h1>
+                <p>coding :3</p>
+                <ul>
+                    <li>18 y/o</li>
+                    <li>She/Her</li>
+                    <li>Trans woman of tumblr</li>
+                    <li>Lesbian</li>
+                    <li>Obnoxious</li>
+                    <li>Gaymer</li>
+                </ul>
+            </span>
+        </div>
+    </win-main>
+    
+    <win-main id="sites" style="top: 65%; left: 50%; width: 300px; z-index: 2;">
+        <win-nav data-title="websites! :o"></win-nav>
+        <div class="content">
+            <h1 id="empty">Wow! so empty</h1>
+        </div>
+    </win-main>
+
+    <win-main id="socials" style="top: 35%; left: 15%; z-index: 3;">
+        <win-nav data-title="socials >w<"></win-nav>
+        <div class="content">
+            <a target="_blank" href="https://www.tumblr.com/nicole-in-distress"><img src="images/tumblr_black_logo_icon_147064.svg" alt="Tumblr"></a>
+            <a target="_blank" href="https://www.instagram.com/itsnicole.php/"><img src="images/instagram-logo-fill-svgrepo-com.svg" alt="Instagram"></a>
+            <a target="_blank" href="https://github.com/nicole-is-very-tired"><img src="images/github.svg" alt="Github"></a>
+            <!--a target="_blank" href="https://ko-fi.com/"><img src="images/kofi.svg" alt="Ko-fi"></a -->
+        </div>
+    </win-main>
+
+    <win-main id="paint" style="top: 15%; left: calc(85% - 40vmin); z-index: 5; height: 40vmin; width: 40vmin;">
+        <win-nav data-title="js paint xD"></win-nav>
+        <iframe src="https://jspaint.app/" frameborder="0"></iframe>
+    </win-main>
+    
+    <footer>
+        <div>
+            <a id="startbtn" href="#" target="_blank"><img src="images/windows-0.png" alt=""><p>Start</p></a>
+        </div>
+
+        <div id="item-holder">
+        </div>
+        
+        <div id="task-info">
+            <p><span id="hour">hrs</span>:<span id="minutes">mins</span> <span id="ampm">AM</span> </p>
+        </div>
+    </footer>
+    
+    <noscript>
+        
+        <p id="noscript"><img src="windows/messages/color-error.png" alt="Error Icon">Please enable JavaScript<img src="windows/messages/color-error.png" alt="Error Icon"></p>
+        <div></div>
+    </noscript>
+    
+    <script src="js/time-manager.js"></script>
+    <script src="js/window-manager.js"></script>
+    <script type="module" src="js/ytrandom.js"></script>
+
+
+</body></html>
